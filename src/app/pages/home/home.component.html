@@ -1,0 +1,23 @@
+<div class="grid">
+    <div [class]="color(i) + ' class-card'" *ngFor="let class of classes; let i = index" (click)="viewClass(class)">{{class.title}}</div>
+    <!-- <button type="button" [class]="color(classes.length) + ' class-card'" data-toggle="modal" data-target="#newClass">+ New Class</button>
+
+    <div id="newClass" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create Class</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" [(ngModel)]="title" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" (click)="addClass()">Create</button>
+                </div>
+            </div>
+
+        </div>
+    </div> -->
+</div>

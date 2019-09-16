@@ -1,0 +1,63 @@
+<div class="sidebar">
+    <a class="back" [routerLink]="['home']">
+        <i class="arrow"></i>
+        Homepage
+    </a>
+    <br>
+    <span class="title">{{class?.title}}</span>
+    <button class="overview list-item" (click)="showClassOverview()">Overview</button>
+    <div *ngFor="let chapter of class?.chapters">
+        <button class="chapter list-item collapsed" data-toggle="collapse" [attr.data-target]="'#' + chapter.id" (click)="showChapterOverview(chapter.id)">
+            <i class="arrow"></i>
+            Chapter {{chapter.title}}
+        </button>
+
+        <div [id]="chapter?.id" class="collapse">
+            <button class="chapter-overview list-item" (click)="showChapterOverview(chapter.id)">Overview</button>
+            <button class="section list-item" *ngFor="let section of chapter?.sections" (click)="showSection(chapter.id, section.id)">Section {{section.title}}</button>
+            <!-- <button class="btn btn-success" (click)="newSection(chapter.id)">Add</button> -->
+        </div> 
+    </div>
+    <!-- <div class="new-chapter">
+        <button class="btn btn-success" (click)="newChapter()">Add</button>
+    </div> -->
+</div>
+
+<div class="page">
+    <h1 [innerText]="pageTitle"></h1>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default" *ngFor="let data of shownData?.terms">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="term" data-toggle="collapse" data-parent="#accordion" [href]="'#' + data.id">
+                        <div class="data">
+                            <span class="value" [innerText]="data.value + ' :'"></span> <span class="def">{{data.def}}</span>
+                        </div>
+                        <div *ngIf="data.code">
+                            <span class="plus">&#43;</span>
+                        </div>
+                    </a>
+                </h4>
+            </div>
+            <div [id]="data.id" class="panel-collapse collapse" *ngIf="data.code">
+                <div class="panel-body">
+                    <div>
+                        Code
+                        <div class="code" [innerHtml]="data.code"></div>
+                    </div>
+                    <div>
+                        Output
+                        <div class="output" [innerHtml]="data.output"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div *ngIf="shownData?.chapterId">
+        <input type="text" placeholder="Value" class="form-control" [(ngModel)]="value">
+        <input type="text" placeholder="Definition" class="form-control" [(ngModel)]="def">
+        <textarea type="text" placeholder="Code" class="form-control" [(ngModel)]="code"></textarea>
+        <textarea type="text" placeholder="Output" class="form-control" [(ngModel)]="output"></textarea>
+        <button class="btn btn-success" type="submit" (click)="addTerm()">Add</button>
+    </div> -->
+</div>
