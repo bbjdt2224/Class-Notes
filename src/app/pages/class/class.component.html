@@ -15,12 +15,12 @@
         <div [id]="chapter?.id" class="collapse">
             <button class="chapter-overview list-item" (click)="showChapterOverview(chapter.id)">Overview</button>
             <button class="section list-item" *ngFor="let section of chapter?.sections" (click)="showSection(chapter.id, section.id)">Section {{section.title}}</button>
-            <!-- <button class="btn btn-success" (click)="newSection(chapter.id)">Add</button> -->
+            <button class="btn btn-success" (click)="newSection(chapter.id)">Add</button>
         </div> 
     </div>
-    <!-- <div class="new-chapter">
+    <div class="new-chapter">
         <button class="btn btn-success" (click)="newChapter()">Add</button>
-    </div> -->
+    </div>
 </div>
 
 <div class="page">
@@ -53,11 +53,11 @@
             </div>
         </div>
     </div>
-    <!-- <div *ngIf="shownData?.chapterId">
+    <div *ngIf="shownData?.chapterId">
         <input type="text" placeholder="Value" class="form-control" [(ngModel)]="value">
         <input type="text" placeholder="Definition" class="form-control" [(ngModel)]="def">
         <textarea type="text" placeholder="Code" class="form-control" [(ngModel)]="code"></textarea>
         <textarea type="text" placeholder="Output" class="form-control" [(ngModel)]="output"></textarea>
         <button class="btn btn-success" type="submit" (click)="addTerm()">Add</button>
-    </div> -->
+    </div>
 </div>

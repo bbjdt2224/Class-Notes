@@ -1,6 +1,6 @@
 <div class="grid">
     <div [class]="color(i) + ' class-card'" *ngFor="let class of classes; let i = index" (click)="viewClass(class)">{{class.title}}</div>
-    <!-- <button type="button" [class]="color(classes.length) + ' class-card'" data-toggle="modal" data-target="#newClass">+ New Class</button>
+    <button type="button" [class]="color(classes.length) + ' class-card'" data-toggle="modal" data-target="#newClass">+ New Class</button>
 
     <div id="newClass" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -19,5 +19,5 @@
             </div>
 
         </div>
-    </div> -->
+    </div>
 </div>
